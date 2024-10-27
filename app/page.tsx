@@ -1,9 +1,38 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Crosshair } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import { Crosshair, Award } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 
 export default function Home() {
+  const members = [
+    {
+      name: "Amadou Diallo",
+      image: "/placeholder.svg?height=100&width=100",
+      grade: "Maître Chasseur",
+      honors: ["Protecteur de la Communauté", "Expert en Herbes Médicinales"]
+    },
+    {
+      name: "Fatoumata Koné",
+      image: "/placeholder.svg?height=100&width=100",
+      grade: "Chasseuse Émérite",
+      honors: ["Gardienne des Traditions", "Maîtresse des Rituels"]
+    },
+    {
+      name: "Ibrahim Touré",
+      image: "/placeholder.svg?height=100&width=100",
+      grade: "Apprenti Avancé",
+      honors: ["Promesse de la Confrérie"]
+    },
+    {
+      name: "Mariam Sylla",
+      image: "/placeholder.svg?height=100&width=100",
+      grade: "Chasseuse Expérimentée",
+      honors: ["Guérisseuse Talentueuse", "Conteuse des Légendes Dozo"]
+    }
+  ]
+
   return (
     <div className="flex flex-col min-h-screen">
       <header className="px-4 lg:px-6 h-14 flex items-center border-b">
@@ -20,6 +49,9 @@ export default function Home() {
           </Link>
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="#role-moderne">
             Rôle Moderne
+          </Link>
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#membres">
+            Membres
           </Link>
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="#contact">
             Contact
@@ -116,7 +148,39 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+        <section id="membres" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">Nos Membres Distingués</h2>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {members.map((member, index) => (
+                <Card key={index} className="overflow-hidden">
+                  <CardHeader className="p-0">
+                    <Image
+                      src={member.image}
+                      alt={`Photo de ${member.name}`}
+                      width={300}
+                      height={200}
+                      className="w-full h-48 object-cover"
+                    />
+                  </CardHeader>
+                  <CardContent className="p-4">
+                    <h3 className="font-bold text-lg mb-2">{member.name}</h3>
+                    <p className="text-sm text-gray-500 mb-2">{member.grade}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {member.honors.map((honor, honorIndex) => (
+                        <Badge key={honorIndex} variant="secondary">
+                          <Award className="w-3 h-3 mr-1" />
+                          {honor}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">Notre Engagement</h2>
             <div className="max-w-3xl mx-auto text-center">
@@ -127,7 +191,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section id="contact" className="w-full py-12 md:py-24 lg:py-32">
+        <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
