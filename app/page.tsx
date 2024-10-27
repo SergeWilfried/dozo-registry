@@ -56,8 +56,8 @@ export default function Home() {
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="#contact">
             Contact
           </Link>
-          <Button variant="outline" size="sm">
-            Me connecter
+          <Button  variant="outline" size="sm">
+            <Link href={'/dashboard'}>Me connecter</Link>
           </Button>
         </nav>
       </header>
