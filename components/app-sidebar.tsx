@@ -17,11 +17,9 @@ import {
   Calendar,
   Users,
   Briefcase,
-  DollarSign,
   Monitor,
   ClipboardList,
   ClipboardPlusIcon,
-  MapIcon,
   FileText,
   Heart,
 } from "lucide-react";
@@ -55,25 +53,26 @@ const data = {
     {
       title: "Membres",
       icon: Users,
+      url: "#",
       items: [
         {
           title: "Tous les membres",
-          url: "/members",
+          url: "#",
           icon: Users,
         },
         {
           title: "Candidatures",
-          url: "/applications",
+          url: "#",
           icon: ClipboardList,
         },
         {
           title: "Honneurs",
-          url: "/honors",
+          url: "#",
           icon: Heart,
         },
         {
           title: "Sanctions",
-          url: "/sanctions",
+          url: "#",
           icon: FileText,
         },
       ],
@@ -81,15 +80,16 @@ const data = {
     {
       title: "Événements",
       icon: Calendar,
+      url: "#",
       items: [
         {
           title: "A venir",
-          url: "/events",
+          url: "#",
           icon: Calendar,
         },
         {
           title: "Calendrier",
-          url: "/event-planning",
+          url: "#",
           icon: ClipboardPlusIcon,
         },
       ],
@@ -98,22 +98,22 @@ const data = {
   projects: [
     {
       name: "Collecte de fonds",
-      url: "/fundraising",
+      url: "#",
       icon: Heart,
     },
     {
       name: "Rapports",
-      url: "/reports",
+      url: "#",
       icon: Monitor,
     },
     {
       name: "Ressources",
-      url: "/resources",
+      url: "#",
       icon: Briefcase,
     },
     {
       name: "Assistance",
-      url: "/help",
+      url: "#",
       icon: Heart,
     },
   ],
