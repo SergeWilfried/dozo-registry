@@ -22,6 +22,8 @@ import {
   ClipboardPlusIcon,
   FileText,
   Heart,
+  GlobeLockIcon,
+  MapIcon,
 } from "lucide-react";
 
 // Sample fraternity-specific data
@@ -33,13 +35,18 @@ const data = {
   },
   chapters: [
     {
+      name: "National",
+      logo: GlobeLockIcon,
+      plan: "Manager General",
+    },
+    {
       name: "Orodara",
-      logo: Heart,
+      logo: MapIcon,
       plan: "Administrateur",
     },
     {
       name: "Bobo Dioulasso",
-      logo: Heart,
+      logo: MapIcon,
       plan: "Administrateur",
     },
   ],
