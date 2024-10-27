@@ -29,45 +29,45 @@ import {
 // Sample fraternity-specific data
 const data = {
   user: {
-    name: "John Doe",
-    email: "johndoe@example.com",
+    name: "Frederic Traore",
+    email: "fredTr@example.com",
     avatar: "/avatars/johndoe.jpg",
   },
   chapters: [
     {
-      name: "Alpha Chapter",
+      name: "Orodara",
       logo: Heart,
       plan: "Full Member",
     },
     {
-      name: "Beta Chapter",
+      name: "Bobo",
       logo: Heart,
       plan: "Associate",
     },
   ],
   navMain: [
     {
-      title: "Dashboard",
+      title: "Tableau de bord",
       url: "/dashboard",
       icon: Monitor,
       isActive: true,
     },
     {
-      title: "Members",
+      title: "Membres",
       icon: Users,
       items: [
         {
-          title: "All Members",
+          title: "Tous les membres",
           url: "/members",
           icon: Users,
         },
         {
-          title: "Applications",
+          title: "Candidatures",
           url: "/applications",
           icon: ClipboardList,
         },
         {
-          title: "Honors",
+          title: "Honneurs",
           url: "/honors",
           icon: Heart,
         },
@@ -79,41 +79,40 @@ const data = {
       ],
     },
     {
-      title: "Events",
+      title: "Événements",
       icon: Calendar,
       items: [
         {
-          title: "Upcoming Events",
+          title: "A venir",
           url: "/events",
           icon: Calendar,
         },
         {
-          title: "Event Planning",
+          title: "Calendrier",
           url: "/event-planning",
           icon: ClipboardPlusIcon,
         },
       ],
     },
-
   ],
   projects: [
     {
-      name: "Fundraising",
+      name: "Collecte de fonds",
       url: "/fundraising",
       icon: Heart,
     },
     {
-      name: "Reports",
+      name: "Rapports",
       url: "/reports",
       icon: Monitor,
     },
     {
-      name: "Resources",
+      name: "Ressources",
       url: "/resources",
       icon: Briefcase,
     },
     {
-      name: "Help",
+      name: "Assistance",
       url: "/help",
       icon: Heart,
     },

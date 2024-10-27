@@ -28,7 +28,7 @@ export default function Page() {
               <BreadcrumbList>
                 <BreadcrumbItem className="hidden md:block">
                   <BreadcrumbLink href="#">
-                    Gesco
+                    Dinke
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
@@ -43,12 +43,12 @@ export default function Page() {
             
           </div>
         </header>
-        <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-          <div className="grid auto-rows-min gap-4 md:grid-cols-4">
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
+        <div className="flex flex-1 flex-col gap-2 p-2 pt-0">
+          <div className="grid auto-rows-min gap-2 md:grid-cols-4">
+            <div className="aspect-video rounded-md bg-muted/50" />
+            <div className="aspect-video rounded-md bg-muted/50" />
+            <div className="aspect-video rounded-md bg-muted/50" />
+            <div className="aspect-video rounded-md bg-muted/50" />
           </div>
           <div className="flex flex-col flex-1 rounded-lg">
             <div className="grid grid-cols-4 gap-2 pb-2 flex-1">
