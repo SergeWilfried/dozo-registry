@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import { Crosshair, Award } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 export default function Home() {
   const members = [
@@ -57,7 +58,7 @@ export default function Home() {
             Contact
           </Link>
           <Button variant="outline" size="sm">
-            S&aposinscrire
+            S'inscrire
           </Button>
         </nav>
       </header>
@@ -70,7 +71,7 @@ export default function Home() {
                   Bienvenue dans la Confrérie Dozo
                 </h1>
                 <p className="mx-auto max-w-[700px] text-white md:text-xl dark:text-gray-400">
-                  Gardiens de la tradition, protecteurs de la communauté, et chasseurs légendaires d&aposAfrique de l&aposOuest.
+                  Gardiens de la tradition, protecteurs de la communauté, et chasseurs légendaires d&apos;Afrique de l&apos;Ouest.
                 </p>
               </div>
               <div className="space-x-4">
@@ -86,13 +87,13 @@ export default function Home() {
               <div className="space-y-4">
                 <h3 className="text-xl font-bold">Origines Anciennes</h3>
                 <p className="text-gray-500 dark:text-gray-400">
-                  Les Dozo sont des chasseurs traditionnels originaires du nord de la Côte d&aposIvoire, du sud-est du Mali et du Burkina Faso. Notre confrérie, le Donzo Ton, rassemble des chasseurs initiés et leurs fils, perpétuant une tradition séculaire.
+                  Les Dozo sont des chasseurs traditionnels originaires du nord de la Côte d&apos;Ivoire, du sud-est du Mali et du Burkina Faso. Notre confrérie, le Donzo Ton, rassemble des chasseurs initiés et leurs fils, perpétuant une tradition séculaire.
                 </p>
               </div>
               <div className="space-y-4">
                 <h3 className="text-xl font-bold">Héritage Mandé</h3>
                 <p className="text-gray-500 dark:text-gray-400">
-                  Bien que nous ne soyons pas un groupe ethnique distinct, les Dozo sont principalement issus des communautés parlant le Mandé, mais on nous trouve également parmi les Dyula, les Dogon et la plupart des autres groupes ethniques de Côte d&aposIvoire.
+                  Bien que nous ne soyons pas un groupe ethnique distinct, les Dozo sont principalement issus des communautés parlant le Mandé, mais on nous trouve également parmi les Dyula, les Dogon et la plupart des autres groupes ethniques de Côte d&apos;Ivoire.
                 </p>
               </div>
             </div>
@@ -112,7 +113,7 @@ export default function Home() {
               </Card>
               <Card>
                 <CardHeader>
-                  <CardTitle>Rituels d&aposInitiation</CardTitle>
+                  <CardTitle>Rituels d&apos;Initiation</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p>Les fils de Dozo et les nouveaux adhérents subissent une série de rituels secrets pour être initiés au Ton.</p>
@@ -155,13 +156,10 @@ export default function Home() {
               {members.map((member, index) => (
                 <Card key={index} className="overflow-hidden">
                   <CardHeader className="p-0">
-                    <Image
-                      src={member.image}
-                      alt={`Photo de ${member.name}`}
-                      width={300}
-                      height={200}
-                      className="w-full h-48 object-cover"
-                    />
+                  <Avatar className="w-full h-48 object-cover">
+                    <AvatarImage src={member.image} />
+                    <AvatarFallback>{member.name.slice(0,2)}</AvatarFallback>
+                  </Avatar>
                   </CardHeader>
                   <CardContent className="p-4">
                     <h3 className="font-bold text-lg mb-2">{member.name}</h3>
@@ -199,7 +197,7 @@ export default function Home() {
                   Contactez la Confrérie Dozo
                 </h2>
                 <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                  Pour en savoir plus sur notre histoire, nos traditions ou notre rôle dans la société moderne, n&aposhésitez pas à nous contacter.
+                  Pour en savoir plus sur notre histoire, nos traditions ou notre rôle dans la société moderne, n&apos;hésitez pas à nous contacter.
                 </p>
               </div>
               <div className="w-full max-w-sm space-y-2">
@@ -218,7 +216,7 @@ export default function Home() {
             Politique de confidentialité
           </Link>
           <Link className="text-xs hover:underline underline-offset-4" href="#">
-            Conditions d&aposutilisation
+            Conditions d&apos;utilisation
           </Link>
         </nav>
       </footer>
