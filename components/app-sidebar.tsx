@@ -35,12 +35,12 @@ const data = {
     {
       name: "Orodara",
       logo: Heart,
-      plan: "Full Member",
+      plan: "Administrateur",
     },
     {
-      name: "Bobo",
+      name: "Bobo Dioulasso",
       logo: Heart,
-      plan: "Associate",
+      plan: "Administrateur",
     },
   ],
   navMain: [
