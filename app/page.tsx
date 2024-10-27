@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Crosshair, Award } from "lucide-react"
-import Image from "next/image"
 import Link from "next/link"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
@@ -58,7 +57,7 @@ export default function Home() {
             Contact
           </Link>
           <Button variant="outline" size="sm">
-            S'inscrire
+            Me connecter
           </Button>
         </nav>
       </header>
