@@ -1,100 +1,163 @@
-import Image from "next/image";
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Crosshair } from "lucide-react"
+import Link from "next/link"
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="/dashboard"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            demo
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+    <div className="flex flex-col min-h-screen">
+      <header className="px-4 lg:px-6 h-14 flex items-center border-b">
+        <Link className="flex items-center justify-center" href="#">
+          <Crosshair className="h-6 w-6 mr-2" />
+          <span className="font-bold">Confrérie Dozo</span>
+        </Link>
+        <nav className="ml-auto flex gap-4 sm:gap-6 items-center">
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#histoire">
+            Histoire
+          </Link>
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#traditions">
+            Traditions
+          </Link>
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#role-moderne">
+            Rôle Moderne
+          </Link>
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#contact">
+            Contact
+          </Link>
+          <Button variant="outline" size="sm">
+            S'inscrire
+          </Button>
+        </nav>
+      </header>
+      <main className="flex-1">
+        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-[url('/placeholder.svg?height=720&width=1280')] bg-cover bg-center">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none text-white">
+                  Bienvenue dans la Confrérie Dozo
+                </h1>
+                <p className="mx-auto max-w-[700px] text-white md:text-xl dark:text-gray-400">
+                  Gardiens de la tradition, protecteurs de la communauté, et chasseurs légendaires d'Afrique de l'Ouest.
+                </p>
+              </div>
+              <div className="space-x-4">
+                <Button variant="outline" className="bg-white text-black hover:bg-gray-100">En savoir plus</Button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="histoire" className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">Notre Histoire</h2>
+            <div className="grid gap-10 sm:grid-cols-2 md:gap-16">
+              <div className="space-y-4">
+                <h3 className="text-xl font-bold">Origines Anciennes</h3>
+                <p className="text-gray-500 dark:text-gray-400">
+                  Les Dozo sont des chasseurs traditionnels originaires du nord de la Côte d'Ivoire, du sud-est du Mali et du Burkina Faso. Notre confrérie, le Donzo Ton, rassemble des chasseurs initiés et leurs fils, perpétuant une tradition séculaire.
+                </p>
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-xl font-bold">Héritage Mandé</h3>
+                <p className="text-gray-500 dark:text-gray-400">
+                  Bien que nous ne soyons pas un groupe ethnique distinct, les Dozo sont principalement issus des communautés parlant le Mandé, mais on nous trouve également parmi les Dyula, les Dogon et la plupart des autres groupes ethniques de Côte d'Ivoire.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="traditions" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">Nos Traditions</h2>
+            <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Vêtements et Amulettes</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>Nos vêtements de chasse bruns distinctifs et nos amulettes gris-gris sont réputés pour leurs propriétés magiques de protection.</p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Rituels d'Initiation</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>Les fils de Dozo et les nouveaux adhérents subissent une série de rituels secrets pour être initiés au Ton.</p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Sagesse et Force</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>Les Dozo sont reconnus pour leur sagesse, leur force et leurs capacités spéciales, respectés par les communautés agricoles et pastorales.</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+        <section id="role-moderne" className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">Notre Rôle Moderne</h2>
+            <div className="grid gap-10 sm:grid-cols-2 md:gap-16">
+              <div className="space-y-4">
+                <h3 className="text-xl font-bold">Gardiens de la Sécurité</h3>
+                <p className="text-gray-500 dark:text-gray-400">
+                  Face aux défis sécuritaires actuels, notamment au Burkina Faso, les Dozos jouent un rôle crucial. Nous collaborons avec les forces de défense et de sécurité pour protéger nos communautés, en nous appuyant sur notre connaissance du terrain et nos traditions.
+                </p>
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-xl font-bold">Préservation des Traditions</h3>
+                <p className="text-gray-500 dark:text-gray-400">
+                  Tout en nous adaptant aux enjeux modernes, nous maintenons nos pratiques traditionnelles. Nos cérémonies et nos croyances restent au cœur de notre identité, nous donnant force et courage face aux défis contemporains.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">Notre Engagement</h2>
+            <div className="max-w-3xl mx-auto text-center">
+              <p className="text-lg text-gray-500 dark:text-gray-400 mb-6">
+                En tant que Dozos, nous nous engageons à œuvrer pour la paix et la sécurité de nos communautés. Notre force réside dans notre unité, notre connaissance du terrain, et notre respect des traditions. Nous collaborons étroitement avec les autorités tout en préservant nos valeurs et nos pratiques ancestrales.
+              </p>
+              <Button size="lg">En Savoir Plus sur Notre Engagement</Button>
+            </div>
+          </div>
+        </section>
+        <section id="contact" className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                  Contactez la Confrérie Dozo
+                </h2>
+                <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+                  Pour en savoir plus sur notre histoire, nos traditions ou notre rôle dans la société moderne, n'hésitez pas à nous contacter.
+                </p>
+              </div>
+              <div className="w-full max-w-sm space-y-2">
+                <Button className="w-full">Nous Contacter</Button>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
+        <p className="text-xs text-gray-500 dark:text-gray-400">
+          © 2024 Confrérie Dozo. Tous droits réservés.
+        </p>
+        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
+          <Link className="text-xs hover:underline underline-offset-4" href="#">
+            Politique de confidentialité
+          </Link>
+          <Link className="text-xs hover:underline underline-offset-4" href="#">
+            Conditions d'utilisation
+          </Link>
+        </nav>
       </footer>
     </div>
-  );
+  )
 }
