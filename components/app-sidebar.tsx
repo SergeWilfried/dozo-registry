@@ -65,17 +65,17 @@ const data = {
           url: "#",
           icon: ClipboardList,
         },
-        {
-          title: "Honneurs",
-          url: "#",
-          icon: Heart,
-        },
-        {
-          title: "Sanctions",
-          url: "#",
-          icon: FileText,
-        },
       ],
+    },
+    {
+      title: "Honneurs",
+      url: "#",
+      icon: Heart,
+    },
+    {
+      title: "Sanctions",
+      url: "#",
+      icon: FileText,
     },
     {
       title: "Événements",
