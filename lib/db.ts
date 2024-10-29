@@ -1,160 +1,203 @@
-// Enum for health status and cattle status in French (single-word values)
-export enum HealthStatus {
-    Healthy = 'Sain',
-    Sick = 'Malade',
+interface SituationMatrimoniale {
+    etat: "Marié" | "Célibataire";
+    nombre_enfants: number;
+    member_id: string;
   }
   
-  export enum CattleStatus {
-    Breeding = 'Reproduction',
-    Pregnant = 'Enceinte',
-    Calving = 'Vêlage',
-    Weaning = 'Sevrage',
+  interface Decoration {
+    est_decore: boolean;
+    date?: string;
+    lieu?: string;
+    medaille?: string;
+    member_id: string;
   }
   
-  // Enum for types of treatments in French (single-word values)
-  export enum TreatmentType {
-    Deworming = 'Vermifuge',
-    HoofTrimming = 'Parage',
-    Antibiotic = 'Antibiotique',
+  interface Sanction {
+    date: string;
+    lieu: string;
+    motif: string;
+    member_id: string;
   }
   
-  // Enum for vaccination types in French (unchanged, as these are abbreviations)
-  export enum VaccineType {
-    BVD = 'BVD',
-    IBR = 'IBR',
-  }
-  
-  // Owner Interface
-  export interface Owner {
+  interface MaitreDosoReferent {
+    nom: string;
+    prenoms: string;
     id: string;
-    name: string;
-    contact: string;
-    farmId: string;
   }
   
-  // Cattle Interface
-  export interface Cattle {
+  interface StatutConfrerie {
+    member_id: string;
+    date_affiliation_dankoun: string;
+    date_affiliation_union: string;
+    maitre_doso: boolean;
+    nombre_eleves_doso?: number;
+    maitre_doso_referent_id?: string;
+    num_carte_union: string;
+    poste_union: string;
+    situation_cotisante: "A jour" | "Non à jour";
+    decoration_id: string;
+    sanction_id: string;
+  }
+  
+  interface MembreDozo {
     id: string;
-    breed: string;
-    age: number;
-    health: HealthStatus;
-    lastCheckup: Date;
-    dateOfBirth: Date;
-    weight: number;
-    farmId: string;
-    forSale: boolean;
-    marketValue: number;
-    status: CattleStatus;
-    imageUrl?: string;
-    ownerId: string;
-    description?: string;
+    nom: string;
+    prenoms: string;
+    date_naissance: string;
+    lieu_naissance: string;
+    id_situation_matrimoniale: string;
+    lieu_residence: string;
+    id_statut_confrerie: string;
   }
-  
-  // Farm Interface
-  export interface Farm {
-    id: string;
-    name: string;
-    ownerName: string;
-    location: {
-      longitude: number;
-      latitude: number;
-    };
-  }
-  
-  // Practitioners Interface
-  export interface Practitioner {
-    id: string;
-    name: string;
-    contact: string;
-    location: string;
-  }
-  
-  // Vaccination event interface
-  export interface VaccinationEvent {
-    date: Date;
-    vaccine: VaccineType;
-    nextDue: Date;
-    practitionerId: string;
-    createdAt: Date;
-  }
-  
-  // Treatment event interface
-  export interface TreatmentEvent {
-    date: Date;
-    type: TreatmentType;
-    notes: string;
-  }
-  
-  // Health Record Interface
-  export interface HealthRecord {
-    id: string;
-    cattleId: string;
-    ownerId: string;
-    healthStatus: HealthStatus;
-    vaccinationHistory: VaccinationEvent[];
-    treatmentHistory: TreatmentEvent[];
-    lastVaccinationDate: Date;
-    nextVaccinationDue: Date;
-    practitionerId: string;
-    createdAt: Date;
-    updatedAt: Date;
-  }
-  
-  export const owners: Owner[] = [
-    {
-      id: "001",
-      name: "Jean Dupont",
-      contact: "+22612345678",
-      farmId: "001",
-    },
 
-  ];
-  
-  // Example Cattle Data with linked Owner
-  export const cattleData: Cattle[] = [
-    {
-      id: "001",
-      breed: "Angus",
-      age: 3,
-      health: HealthStatus.Healthy,
-      lastCheckup: new Date("2023-09-15"),
-      dateOfBirth: new Date("2020-09-15"),
-      weight: 500,
-      farmId: "001",
-      forSale: false,
-      marketValue: 1500,
-      status: CattleStatus.Breeding,
-      ownerId: "001",  // Link to Owner Jean Dupont
-    },
+interface Admission {
+    id: string;
+    nom: string;
+    prenoms: string;
+    date_naissance: string;
+    lieu_naissance: string;
+    situation_matrimoniale: SituationMatrimoniale;
+    lieu_residence: string;
+    id_referent?: string;
+}
 
-  ];
-  
-  export const medicalRecords: HealthRecord[] = [
+  export const membres: MembreDozo[] = [
     {
-      id: "001",
-      cattleId: "001",
-      ownerId: "001",  // Link to Owner Jean Dupont
-      healthStatus: HealthStatus.Healthy,
-      vaccinationHistory: [
-        { date: new Date("2023-01-10"), vaccine: VaccineType.BVD, nextDue: new Date("2024-01-10"), practitionerId: "001", createdAt: new Date("2023-01-10") }
-      ],
-      treatmentHistory: [
-        { date: new Date("2021-03-10"), type: TreatmentType.Deworming, notes: "Routine de vermifuge" }
-      ],
-      lastVaccinationDate: new Date("2023-06-15"),
-      nextVaccinationDue: new Date("2024-01-10"),
-      practitionerId: "001",
-      createdAt: new Date(),
-      updatedAt: new Date(),
+      id: '001',
+      nom: "Koné",
+      prenoms: "Boubacar",
+      date_naissance: "1975-03-15",
+      lieu_naissance: "Banfora",
+      id_situation_matrimoniale: 'SM-001',
+      lieu_residence: "Ouagadougou",
+      id_statut_confrerie: 'SC-001',
+    },
+    {
+      id: '002',
+      nom: "Ouattara",
+      prenoms: "Moussa",
+      date_naissance: "1980-08-12",
+      lieu_naissance: "Koudougou",
+      id_situation_matrimoniale: 'SM-002',
+      lieu_residence: "Bobo-Dioulasso",
+      id_statut_confrerie: 'SC-002',
+    },
+    {
+      id: '003',
+      nom: "Sanou",
+      prenoms: "Abdoulaye",
+      date_naissance: "1972-11-23",
+      lieu_naissance: "Dédougou",
+      id_situation_matrimoniale: 'SM-003',
+      lieu_residence: "Ouagadougou",
+      id_statut_confrerie: 'SC-003',
     },
   ];
   
-  export const practitioners: Practitioner[] = [
+  export const situationsMatrimoniales: SituationMatrimoniale[] = [
     {
-      id: "001",
-      name: "Adamou Kabore",
-      contact: "+22656284997",
-      location: "Niamye",
+      etat: "Marié",
+      nombre_enfants: 4,
+      member_id: '001'
+    },
+    {
+      etat: "Marié",
+      nombre_enfants: 3,
+      member_id: '002'
+    },
+    {
+      etat: "Marié",
+      nombre_enfants: 5,
+      member_id: '003'
     },
   ];
   
+  export const statutsConfrerie: StatutConfrerie[] = [
+    {
+      member_id: '001',
+      date_affiliation_dankoun: "1995-09-10",
+      date_affiliation_union: "1997-05-18",
+      maitre_doso: true,
+      nombre_eleves_doso: 15,
+      num_carte_union: "UNDBF-102345",
+      poste_union: "Chef de Région",
+      situation_cotisante: "A jour",
+      decoration_id: 'D-001',
+      sanction_id: 'S-001'
+    },
+    {
+      member_id: '002',
+      date_affiliation_dankoun: "2001-04-05",
+      date_affiliation_union: "2003-09-15",
+      maitre_doso: true,
+      nombre_eleves_doso: 8,
+      num_carte_union: "UNDBF-105678",
+      poste_union: "Coordinateur Local",
+      situation_cotisante: "A jour",
+      decoration_id: 'D-002',
+      sanction_id: 'S-002'
+    },
+    {
+      member_id: '003',
+      date_affiliation_dankoun: "1990-06-10",
+      date_affiliation_union: "1993-12-20",
+      maitre_doso: false,
+      maitre_doso_referent_id: 'MDR-001',
+      num_carte_union: "UNDBF-102349",
+      poste_union: "Secrétaire Général",
+      situation_cotisante: "Non à jour",
+      decoration_id: 'D-003',
+      sanction_id: 'S-003'
+    },
+  ];
+  
+  export const decorations: Decoration[] = [
+    {
+      est_decore: true,
+      date: "2010-06-24",
+      lieu: "Bobo-Dioulasso",
+      medaille: "Médaille d'Honneur",
+      member_id: '001'
+    },
+    {
+      est_decore: true,
+      member_id: '002',
+      date: "2010-06-24",
+      lieu: "Orodara",
+      medaille: "Médaille d'Honneur",
+    },
+    {
+      est_decore: true,
+      date: "2015-11-30",
+      lieu: "Ouagadougou",
+      medaille: "Médaille de Bravoure",
+      member_id: '003'
+    },
+  ];
+  
+  export const sanctions: Sanction[] = [
+    {
+      date: "2021-03-25",
+      lieu: "Ouagadougou",
+      motif: "Non-respect des règles",
+      member_id: '002'
+    },
+  ];
+  
+  export const maitresDosoReferents: MaitreDosoReferent[] = [
+    {
+      nom: "Traoré",
+      prenoms: "Adama",
+      id: 'MDR-001'
+    },
+    {
+      nom: "Koulibaly",
+      prenoms: "Issa",
+      id: 'MDR-002'
+    },
+  ];
+  
+
+export const admissions: Admission[] = [
+
+]

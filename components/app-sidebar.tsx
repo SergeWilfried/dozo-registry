@@ -26,7 +26,6 @@ import {
   MapIcon,
 } from "lucide-react";
 
-// Sample fraternity-specific data
 const data = {
   user: {
     name: "Frederic Traore",
@@ -64,24 +63,24 @@ const data = {
       items: [
         {
           title: "Tous les membres",
-          url: "#",
+          url: "/members",
           icon: Users,
         },
         {
           title: "Candidatures",
-          url: "#",
+          url: "/applications",
           icon: ClipboardList,
         },
       ],
     },
     {
       title: "Honneurs",
-      url: "#",
+      url: "/honors",
       icon: Heart,
     },
     {
       title: "Sanctions",
-      url: "#",
+      url: "/sanctions",
       icon: FileText,
     },
     {

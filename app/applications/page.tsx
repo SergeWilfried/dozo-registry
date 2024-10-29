@@ -1,3 +1,4 @@
+import React from "react"
 import { AppSidebar } from "@/components/app-sidebar"
 import {
   Breadcrumb,
@@ -13,8 +14,13 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
+import { DataTable } from "../../components/data-table"
+import { columns } from "./columns"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { admissions } from "@/lib/db"
 
 export default function Page() {
+  
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -34,6 +40,10 @@ export default function Page() {
                 <BreadcrumbItem>
                   <BreadcrumbPage>Tableau de bord</BreadcrumbPage>
                 </BreadcrumbItem>
+                <BreadcrumbSeparator className="hidden md:block" />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>Admissions</BreadcrumbPage>
+                </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
 
@@ -41,38 +51,19 @@ export default function Page() {
         </header>
 
         {/* Main Content Area */}
-        <div className="flex flex-1 flex-col gap-2 p-2 pt-0">
-          {/* Responsive grid for video sections */}
-          <div className="grid auto-rows-min gap-2 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="aspect-video rounded-md bg-muted/50" />
-            <div className="aspect-video rounded-md bg-muted/50" />
-            <div className="aspect-video rounded-md bg-muted/50" />
-            <div className="aspect-video rounded-md bg-muted/50" />
-          </div>
-          
-          {/* Responsive layout for main content rows */}
-          <div className="flex flex-col flex-1 rounded-lg">
-            {/* First Row */}
-            <div className="grid grid-cols-1 gap-2 pb-2 sm:grid-cols-2 lg:grid-cols-4 flex-1">
-              <div className="col-span-1 lg:col-span-2 rounded-md bg-muted/50 p-4">
-                Row 1, Column 1
-              </div>
-              <div className="rounded-md bg-muted/50 p-4">
-                Row 1, Column 2
-              </div>
-              <div className="rounded-md bg-muted/50 p-4">
-                Row 1, Column 3
-              </div>
-            </div>
-            
-            {/* Second Row */}
-            <div className="grid grid-cols-1 gap-2 pb-2 sm:grid-cols-2 lg:grid-cols-3 flex-1">
-              <div className="col-span-1 lg:col-span-3 rounded-md bg-muted/50 p-4">
-                Row 2 (Full Width)
-              </div>
-            </div>
-          </div>
-        </div>
+        <Card className="m-4">
+                  <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                    <div>
+                      <CardTitle>Admissions</CardTitle>
+                      <CardDescription>
+                        View and edit members admissions
+                      </CardDescription>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+            <DataTable columns={columns} data={admissions} dialogContext={"members"} filterColumn={""} />
+          </CardContent>
+        </Card>
       </SidebarInset>
     </SidebarProvider>
   )
